@@ -6,8 +6,13 @@ workflows:
     environment:
       java: 17
     scripts:
-      - name: Build installable debug APK
-        script: |
+        - name: Install compatible Gradle
+          script: |
+            curl -L https://services.gradle.org/distributions/gradle-8.9-bin.zip -o /tmp/gradle.zip
+            unzip -q /tmp/gradle.zip -d /tmp
+        - name: Build installable debug APK
+          script: |
+            /tmp/gradle-8.9/bin/gradle assembleDebug
           gradle --version
           gradle assembleDebug
     artifacts:
