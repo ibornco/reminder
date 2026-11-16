@@ -13,6 +13,5 @@ workflows:
         - name: Build installable debug APK
           script: |
             /tmp/gradle-8.9/bin/gradle assembleDebug
-          gradle assembleDebug
     artifacts:
       - app/build/outputs/apk/debug/*.apk
